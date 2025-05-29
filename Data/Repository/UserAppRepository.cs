@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Data.Repository
 {
-    public class TeacherRepository : Repository<User>, ITeacherRepository
+    public class UserAppRepository : Repository<User>, IUserAppRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public TeacherRepository(ApplicationDbContext db) : base(db)
+        public UserAppRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }

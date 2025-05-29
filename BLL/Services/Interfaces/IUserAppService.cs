@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Services.Interfaces
 {
-    public interface ITeacherService
+    public interface IUserAppService
     {
-        Task<IEnumerable<TeacherDTO>> GetTeachers();
-        Task<TeacherDTO> Add(TeacherDTO teacherDTO);
-        Task Update(TeacherDTO teacherDTO);
+        Task<IEnumerable<UserAppDTO>> GetUsers();
+        Task<UserAppDTO> Add(UserAppDTO userAppDTO);
+        Task Update(UserAppDTO userAppDTO);
         Task Delete(int idTeacher);
 
     }

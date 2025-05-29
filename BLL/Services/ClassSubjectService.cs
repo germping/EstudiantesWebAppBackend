@@ -28,9 +28,9 @@ namespace BLL.Services
         {
             int maxRegisters = 10;
             int registrosActuales = _unitWork.GetCountRegisters();
-            if (maxRegisters>= registrosActuales)
+            if (maxRegisters==registrosActuales)
             {
-                throw new TaskCanceledException("Error save ClassSubject, max 10 egisters");
+                throw new TaskCanceledException("Error save ClassSubject, max 10 registers");
             }
             try
             {

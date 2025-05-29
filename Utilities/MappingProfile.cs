@@ -14,7 +14,7 @@ namespace Utilities
         public MappingProfile() 
         {
             CreateMap<ClassSubject, ClassSubjectDTO>();
-            CreateMap<User, TeacherDTO>();
+            CreateMap<User, UserAppDTO>();
 
         }
     }

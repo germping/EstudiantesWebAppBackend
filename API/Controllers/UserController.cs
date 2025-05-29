@@ -21,14 +21,12 @@ namespace API.Controllers
             _db = db;
             _tokenService = tokenService;
         }
-        [Authorize]
         [HttpGet]//api/user
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             var users =await  _db.Users.ToListAsync();
             return Ok(users);
         }
-        [Authorize]
         [HttpGet ("{id}")]
         public async Task<ActionResult<User>> GetUser(int id) { 
             //var user = _db.Users.SingleOrDefault(x => x.Id == id);

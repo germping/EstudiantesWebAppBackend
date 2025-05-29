@@ -6,18 +6,18 @@ using Models.Entities;
 
 namespace BLL.Services
 {
-    public class TeacherService : ITeacherService
+    public class UserAppService : IUserAppService
     {
-        private readonly IUnitWorkTeacher _unitWork;
+        private readonly IUnitWorkUserApp _unitWork;
         private readonly IMapper _mapper;
 
-        public TeacherService(IUnitWorkTeacher unitWork, IMapper mapper)
+        public UserAppService(IUnitWorkUserApp unitWork, IMapper mapper)
         {
             _unitWork = unitWork;
             _mapper = mapper;
         }
 
-        public async Task<TeacherDTO> Add(TeacherDTO TeacherDTO)
+        public async Task<UserAppDTO> Add(UserAppDTO TeacherDTO)
         {
             int maxRegisters = 5;
             int registrosActuales = _unitWork.GetCountRegisters();
@@ -39,7 +39,7 @@ namespace BLL.Services
                 {
                     throw new TaskCanceledException("Error save Teacher");
                 }
-                return _mapper.Map<TeacherDTO>(teacher);
+                return _mapper.Map<UserAppDTO>(teacher);
             }
             catch (Exception)
             {
@@ -48,7 +48,7 @@ namespace BLL.Services
             }
 
         }
-        public async Task Update(TeacherDTO TeacherDTO)
+        public async Task Update(UserAppDTO TeacherDTO)
         {
             try
             {
@@ -90,13 +90,13 @@ namespace BLL.Services
             }
         }
 
-        public async Task<IEnumerable<TeacherDTO>> GetTeachers()
+        public async Task<IEnumerable<UserAppDTO>> GetUsers()
         {
             try
             {
                 var lista = await _unitWork.User.GetAll(
-                    orderBy: e => e.OrderBy(e => e.Username));
-                return _mapper.Map<IEnumerable<TeacherDTO>>(lista);
+                    orderBy: e => e.OrderBy(e => e.Id));
+                return _mapper.Map<IEnumerable<UserAppDTO>>(lista);
             }
             catch (Exception)
             {

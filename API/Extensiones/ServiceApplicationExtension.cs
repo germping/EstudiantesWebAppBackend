@@ -74,12 +74,12 @@ namespace API.Extensiones
             });
 
             services.AddScoped<IUnitWorkSubjectClass, UnitWorkSubjectClass>();
-            services.AddScoped<IUnitWorkTeacher, UnitWorkTeacher>();
+            services.AddScoped<IUnitWorkUserApp, UnitWorkUserApp>();
             services.AddAutoMapper(typeof(MappingProfile));
 
 
             services.AddScoped<IClassSubjectService, ClassSubjectService>();
-            services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IUserAppService, UserAppService>();
 
             return services;
         }

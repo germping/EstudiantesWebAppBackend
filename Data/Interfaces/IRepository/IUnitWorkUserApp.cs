@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces.IRepository
 {
-    public interface IUnitWorkTeacher: IDisposable
+    public interface IUnitWorkUserApp: IDisposable
     {
-        ITeacherRepository User { get; }
+        IUserAppRepository User { get; }
         Task Save();
         int GetCountRegisters();
     }

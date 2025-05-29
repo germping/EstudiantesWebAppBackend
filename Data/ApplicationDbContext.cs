@@ -19,6 +19,7 @@ namespace Data
         public DbSet<UserClass> UserClasses { get; set; }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<ClassSubject> Classes { get; set; }
+        public DbSet<SubjectUser> Relations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

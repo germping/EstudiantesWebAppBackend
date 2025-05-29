@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Data.Repository
 {
-    public class UnitWorkTeacher : IUnitWorkTeacher
+    public class UnitWorkUserApp : IUnitWorkUserApp
     {
         private readonly ApplicationDbContext _db;
-        public ITeacherRepository User { get; private set; }
+        public IUserAppRepository User { get; private set; }
 
-        public UnitWorkTeacher(ApplicationDbContext db)
+        public UnitWorkUserApp(ApplicationDbContext db)
         {
             _db = db;
-            User= new TeacherRepository(db);
+            User= new UserAppRepository(db);
         }
 
 

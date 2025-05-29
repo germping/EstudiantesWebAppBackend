@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces.IRepository
 {
-    public interface ITeacherRepository: IGenericRepository<User>
+    public interface IUserAppRepository: IGenericRepository<User>
     {
         void Update(User user);
     }

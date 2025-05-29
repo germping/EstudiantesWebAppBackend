@@ -4,14 +4,14 @@ using Models.DTOs;
 
 namespace API.Controllers
 {
-    public class TeacherController: BaseApiController
+    public class UserAppController: BaseApiController
     {
-        private readonly ITeacherService _teacherService;
+        private readonly IUserAppService _userAppService;
         private ApiResponse _response;
 
-        public TeacherController(ITeacherService teacherService)
+        public UserAppController(IUserAppService userAppService)
         {
-            _teacherService = teacherService;
+            _userAppService = userAppService;
             _response = new();
         }
         [HttpGet]
@@ -19,7 +19,7 @@ namespace API.Controllers
         {
             try
             {
-                _response.Result = await _teacherService.GetTeachers();
+                _response.Result = await _userAppService.GetUsers();
                 _response.IsSuccesful = true;
                 _response.StatusCode = System.Net.HttpStatusCode.OK;    
 
@@ -33,31 +33,13 @@ namespace API.Controllers
             }
             return Ok(_response);
         }
-        [HttpPost]
-        public async Task<IActionResult> Create(TeacherDTO TeacherDTO)
-        {
-            try
-            {
-                await _teacherService.Add(TeacherDTO);
-                _response.IsSuccesful = true;
-                _response.StatusCode=System.Net.HttpStatusCode.OK;
-            }
-            catch (Exception ex)
-            {
-
-                _response.IsSuccesful = false;
-                _response.Message = ex.Message; 
-                _response.StatusCode = System.Net.HttpStatusCode.BadRequest;
-            }
-            return Ok(_response);
-        }
 
         [HttpPut]
-        public async Task<IActionResult> Update(TeacherDTO TeacherDTO)
+        public async Task<IActionResult> Update(UserAppDTO userAppDTO)
         {
             try
             {
-                await _teacherService.Update(TeacherDTO);
+                await _userAppService.Update(userAppDTO);
                 _response.IsSuccesful=true;
                 _response.StatusCode = System.Net.HttpStatusCode.NoContent;
             }
@@ -75,7 +57,7 @@ namespace API.Controllers
         {
             try
             {
-                await _teacherService.Delete(id);
+                await _userAppService.Delete(id);
                 _response.IsSuccesful=true;
                 _response.StatusCode= System.Net.HttpStatusCode.NoContent;
             }
