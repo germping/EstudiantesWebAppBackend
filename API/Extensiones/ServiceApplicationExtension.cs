@@ -74,10 +74,11 @@ namespace API.Extensiones
             });
 
             services.AddScoped<IUnitWorkSubjectClass, UnitWorkSubjectClass>();
+            services.AddScoped<IUnitWorkRelation, UnitWorkRelation>();
             services.AddScoped<IUnitWorkUserApp, UnitWorkUserApp>();
             services.AddAutoMapper(typeof(MappingProfile));
 
-
+            services.AddScoped<IRelationService, RelationService>();
             services.AddScoped<IClassSubjectService, ClassSubjectService>();
             services.AddScoped<IUserAppService, UserAppService>();
 
